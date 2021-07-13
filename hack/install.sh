@@ -3,7 +3,7 @@
 set -e
 
 if [ $# -eq 0 ]; then
-  export WPA_TAG=`curl -s https://api.github.com/repos/practo/k8s-worker-pod-autoscaler/releases/latest|python -c "import json;import sys;sys.stdout.write(json.load(sys.stdin)['tag_name']+'\n')"`
+  export WPA_TAG=`curl -s https://api.github.com/repos/Cuemathdotcom/k8s-worker-pod-autoscaler/releases/latest|python -c "import json;import sys;sys.stdout.write(json.load(sys.stdin)['tag_name']+'\n')"`
 else
   export WPA_TAG=$1
 fi
@@ -23,7 +23,7 @@ export WPA_AWS_REGIONS="${AWS_REGIONS}"
 export WPA_AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"
 export WPA_AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"
 
-echo "Image to be used: practodev/${WPA_TAG}"
+echo "Image to be used: Cuemathdotcom dev/${WPA_TAG}"
 
 cp -f $template_deployment $new_deployment
 ./hack/generate.sh ${new_deployment}
